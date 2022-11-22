@@ -14,13 +14,13 @@ class Home extends StatelessWidget{
 
   @override
   Widget build(BuildContext context){
-    int _currentIndex=0;
+   /* int _currentIndex=0;
     final tabs =[
       Navigator.pushNamed(context, "/home"),
       Navigator.pushNamed(context, "/capteur"),
       Navigator.pushNamed(context, "/electrovanne"),
 
-    ];
+    ];*/
     return Scaffold(
       appBar: AppBar(
         title: Text('Smart Irrigation',
@@ -46,7 +46,7 @@ class Home extends StatelessWidget{
 
 
 
-              BottomNavigationBar(
+             /* BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 backgroundColor: Color(0xFF6200EE),
                 selectedItemColor: Colors.white,
@@ -54,7 +54,9 @@ class Home extends StatelessWidget{
                 selectedFontSize: 14,
                 unselectedFontSize: 14,
                 currentIndex:_currentIndex ,
+                onTap: (value){
 
+                },
 
 
                 items: [
@@ -76,14 +78,8 @@ class Home extends StatelessWidget{
                     icon: Icon(Icons.library_books),
                   ),
                 ],
-                onTap: (index){
-                  setState(()
-                  {
-                    _currentIndex=index;
-                  }
-                  );
-                },
-              ),
+
+              ),*/
 
 
 

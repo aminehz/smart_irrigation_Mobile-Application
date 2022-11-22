@@ -12,15 +12,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-    initialRoute: "/home",
+    /*initialRoute: "/home",
       routes: {
       "/home":(context)=> Home(),
         "/capteur":(context)=> capteurSol(),
         "/electrovanne":(context)=>electrovanne(),
         "/forum":(context)=>forum(),
-      },
+      },*/
 
-      /*home:forum(),*/
+      home:Home(),
     );
   }
 }
+/* -navigation
+   -little screen
+ */
