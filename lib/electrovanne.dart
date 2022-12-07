@@ -64,7 +64,7 @@ class electrovanne extends StatelessWidget{
 
 
                           ElevatedButton(
-                            child: Text('Show alert'),
+                            child: Text('Parametres'),
                             onPressed: () {
                               showAlertDialog1(context);
                             },
@@ -120,23 +120,7 @@ class electrovanne extends StatelessWidget{
                             ),
                           ),
 
-                          /*  Padding(
-                            padding: EdgeInsets.all(20),
-                            child: LiteRollingSwitch(
-                              value: true,
-                              textOn: "On",
-                              textOff: "Off",
-                              colorOn: Colors.greenAccent,
-                              colorOff: Colors.redAccent,
-                              iconOn: Icons.done,
-                              iconOff: Icons.alarm_off,
-                              textSize: 18.0,
-                              onChanged: (bool position) {
-                                print("The button is $position");
-                              },
 
-                            ),
-                          ),*/
 
                           SizedBox(
                             width: 250,
@@ -184,23 +168,7 @@ class electrovanne extends StatelessWidget{
                             ),
                           ),
 
-                          /*  Padding(
-                            padding: EdgeInsets.all(20),
-                            child: LiteRollingSwitch(
-                              value: true,
-                              textOn: "On",
-                              textOff: "Off",
-                              colorOn: Colors.greenAccent,
-                              colorOff: Colors.redAccent,
-                              iconOn: Icons.done,
-                              iconOff: Icons.alarm_off,
-                              textSize: 18.0,
-                              onChanged: (bool position) {
-                                print("The button is $position");
-                              },
 
-                            ),
-                          ),*/
 
                           SizedBox(
                             width: 250,

@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      //home:PageNav(activePage: 0,),
-      home:Login(),
+      home:PageNav(activePage: 0,),
+
     );
   }
 }

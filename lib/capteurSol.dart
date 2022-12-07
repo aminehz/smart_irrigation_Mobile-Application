@@ -54,9 +54,11 @@ class capteurSol extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
-                          child: ElevatedButton(
+
+
+
+
+                          ElevatedButton(
                             child: Text('Parametres'),
                             onPressed: () {
                               showAlertDialog1(context);
@@ -66,16 +68,21 @@ class capteurSol extends StatelessWidget {
                             ),
 
 
-
                           ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text('Historique',
-                              style: TextStyle(color: Colors.white)),
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.green),
-                        ),
+                  SizedBox(
+                    width: 10,
+                    height: 50,
+                  ),
+                          TextButton(
+                            onPressed: () {},
+                            child: Text('Historique',
+                                style: TextStyle(color: Colors.white)),
+                            style: TextButton.styleFrom(
+                                backgroundColor: Colors.green),
+                          ),
+
+
+
                       ],
                     ),
                   ],
@@ -119,32 +126,40 @@ class capteurSol extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
-                          child: ElevatedButton(
-                            child: Text('Parametres'),
-                            onPressed: () {
-                              showAlertDialog2(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.green,
-                            ),
+      Row(
+        children: <Widget>[
 
 
 
-                          ),
-                        ),
-                        TextButton(
-                          onPressed: () {},
-                          child: Text('Historique',
-                              style: TextStyle(color: Colors.white)),
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.green),
-                        ),
-                      ],
-                    ),
+
+          ElevatedButton(
+            child: Text('Parametres'),
+            onPressed: () {
+              showAlertDialog1(context);
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+            ),
+
+
+          ),
+          SizedBox(
+            width: 10,
+            height: 50,
+          ),
+          TextButton(
+            onPressed: () {},
+            child: Text('Historique',
+                style: TextStyle(color: Colors.white)),
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+
+
+
+        ],
+      ),
+
                   ],
                 ),
               ),
@@ -188,20 +203,24 @@ class capteurSol extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
-                          child: ElevatedButton(
-                            child: Text('Parametres'),
-                            onPressed: () {
-                              showAlertDialog3(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.green,
-                            ),
 
 
 
+
+                        ElevatedButton(
+                          child: Text('Parametres'),
+                          onPressed: () {
+                            showAlertDialog1(context);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.green,
                           ),
+
+
+                        ),
+                        SizedBox(
+                          width: 10,
+                          height: 50,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -210,6 +229,9 @@ class capteurSol extends StatelessWidget {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.green),
                         ),
+
+
+
                       ],
                     ),
                   ],
@@ -255,20 +277,24 @@ class capteurSol extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.fromLTRB(100.0, 10.0, 0.0, 0.0),
-                          child: ElevatedButton(
-                            child: Text('Parametres'),
-                            onPressed: () {
-                              showAlertDialog4(context);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              primary: Colors.green,
-                            ),
 
 
 
+
+                        ElevatedButton(
+                          child: Text('Parametres'),
+                          onPressed: () {
+                            showAlertDialog1(context);
+                          },
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.green,
                           ),
+
+
+                        ),
+                        SizedBox(
+                          width: 10,
+                          height: 50,
                         ),
                         TextButton(
                           onPressed: () {},
@@ -277,6 +303,9 @@ class capteurSol extends StatelessWidget {
                           style: TextButton.styleFrom(
                               backgroundColor: Colors.green),
                         ),
+
+
+
                       ],
                     ),
                   ],
