@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 void main() => runApp(Historique());
@@ -24,71 +26,59 @@ class MyLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        child: Text('Show alert'),
-        onPressed: () {
-          showAlertDialog(context);
-        },
-        style: ElevatedButton.styleFrom(
-          primary: Colors.green,
-        ),
-
-
-
-      ),
+      child: Chart(),
 
     );
   }
 }
 
-// replace this function with the examples above
-showAlertDialog(BuildContext context) {
-
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: Text("My title"),
-    content:Chart(),
-
-
-
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
 
 class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final List<ChartData>
+    chartData=[
+      ChartData(3,1),
+      ChartData(5,1),
+      ChartData(10,1),
+      ChartData(15,1),
+      ChartData(30,1)
+
+    ];
+
+
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child:Column(
-        children:<Widget> [
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
           Container(
+            child: SfCartesianChart(
+                    title: ChartTitle(text:"Electrovanne 1"),
+                    legend: Legend(isVisible: false),
+                   series:<ChartSeries>[
+                     AreaSeries<ChartData,int>(
+                         dataSource: chartData,
+                         xValueMapper: (ChartData data,_)=>data.x,
+                         yValueMapper: (ChartData data,_)=>data.y,
+                          color: Colors.lightBlueAccent.withOpacity(0.5),
+                          borderColor: Colors.grey,
+                           borderWidth: 2,
 
-            child: SfCartesianChart(),
+                       ),
+
+                   ],
+
+            ),
           ),
-
-
-
         ],
       ),
-
-
     );
   }
+}
+
+class ChartData{
+  ChartData(this.x,this.y);
+  final int x;
+  final double y;
 }

@@ -6,8 +6,6 @@ void main ()=> runApp(
     )
 );
 class electrovanne extends StatelessWidget{
-  /*bool isSwitched = false;
-  _State createState() => _State();*/
     @override
     Widget build (BuildContext context){
       return Scaffold(
@@ -36,33 +34,14 @@ class electrovanne extends StatelessWidget{
                               color: Colors.black,
                             ),
                           ),
-
-                          /*Center(
-                            child: Switch(
-                              value: isSwitched,
-                              onChanged: (value) {
-                                setState(() {
-                                  isSwitched = value;
-                                  print(isSwitched);
-                                });
-                              },
-                              activeTrackColor: Colors.lightGreenAccent,
-                              activeColor: Colors.green,
-                            ),
-                          )*/
-
                           SizedBox(
                             width: 250,
                             height: 80,
-
                           ),
                         ],
                       ),
                       Row(
                         children: <Widget>[
-
-
-
                           ElevatedButton(
                             child: Text('Parametres'),
                             onPressed: () {
@@ -71,28 +50,7 @@ class electrovanne extends StatelessWidget{
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-
-
-
                           ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         ],
                       ),
@@ -139,9 +97,6 @@ class electrovanne extends StatelessWidget{
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-
-
-
                           ),
                         ],
                       ),
@@ -167,9 +122,6 @@ class electrovanne extends StatelessWidget{
                               color: Colors.black,
                             ),
                           ),
-
-
-
                           SizedBox(
                             width: 250,
                             height: 80,
@@ -187,9 +139,6 @@ class electrovanne extends StatelessWidget{
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-
-
-
                           ),
                         ],
                       ),
@@ -251,9 +200,6 @@ class electrovanne extends StatelessWidget{
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-
-
-
                           ),
                         ],
                       ),
@@ -263,84 +209,58 @@ class electrovanne extends StatelessWidget{
 
               ],
             ),
-
-
-
           ],
         ),
         );
-
     }
-
 }
 
 showAlertDialog1(BuildContext context) {
-
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
-
   // set up the AlertDialog
   bool valueCheck1 = false;
   AlertDialog alert = AlertDialog(
-
-    content:Column(
-
-      children:<Widget> [
-                TextField (
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      labelText: 'Enter Electrovanne Name',
-                      hintText: 'Enter Your Name'
-                  ),
-                ),
-                Text("Irrigation auto"),
-          Row(
-            children: [
-              TextButton(
-                child: Text("Annuler",
-                    style: TextStyle(color: Colors.white)),
-                onPressed: () { },
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.green),
-              ),
-              TextButton(
-                child: Text("Valider",style: TextStyle(color: Colors.white)),
-                onPressed: () { },
-                style: TextButton.styleFrom(
-                    backgroundColor: Colors.green),
-              ),
-
-            ],
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 100,
+    child: Column(
+      children:<Widget>[
+        TextField (
+          decoration: InputDecoration(
+              border: InputBorder.none,
+              labelText: 'Enter Electrovanne Name',
+              hintText: 'Enter Your Name'
           ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
         ),
+        Text("Irrigation auto"),
+
+
       ],
 
     ),
+    ),
 
+    actions:[
 
-    actions: [
-      okButton,
-    ],
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children:<Widget> [
+            TextButton(
+              child: Text("Annuler",
+                  style: TextStyle(color: Colors.white)),
+              onPressed: () { },
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.green),
+            ),
+            SizedBox(width: 40),
+            TextButton(
+              child: Text("Valider",style: TextStyle(color: Colors.white)),
+              onPressed: () { },
+              style: TextButton.styleFrom(
+                  backgroundColor: Colors.green),
+            ),
+          ],
+        ),
+],
   );
 
   // show the dialog
@@ -356,69 +276,51 @@ showAlertDialog1(BuildContext context) {
 showAlertDialog2(BuildContext context) {
 
   // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
+
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-
-    content:
-    Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Enter Electrovanne Name',
-              hintText: 'Enter Your Name'
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 100,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter Electrovanne Name',
+                hintText: 'Enter Your Name'
+            ),
           ),
-        ),
-        Text("Irrigation auto"),
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
+          Text("Irrigation auto"),
 
 
+        ],
 
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
+      ),
     ),
 
+    actions:[
 
-    actions: [
-      okButton,
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+        ],
+      ),
     ],
   );
 
@@ -434,67 +336,51 @@ showAlertDialog2(BuildContext context) {
 showAlertDialog3(BuildContext context) {
 
   // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
+
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-
-    content: Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Enter Electrovanne Name',
-              hintText: 'Enter Your Name'
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 100,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter Electrovanne Name',
+                hintText: 'Enter Your Name'
+            ),
           ),
-        ),
-        Text("Irrigation auto"),
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
+          Text("Irrigation auto"),
 
 
+        ],
 
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
+      ),
     ),
 
-    actions: [
-      okButton,
+    actions:[
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+        ],
+      ),
     ],
   );
 
@@ -508,69 +394,49 @@ showAlertDialog3(BuildContext context) {
 }
 //btn4
 showAlertDialog4(BuildContext context) {
-
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
-
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-
-    content: Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Enter Electrovanne Name',
-              hintText: 'Enter Your Name'
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 100,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter Electrovanne Name',
+                hintText: 'Enter Your Name'
+            ),
           ),
-        ),
-        Text("Irrigation auto"),
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
+          Text("Irrigation auto"),
 
 
+        ],
 
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
+      ),
     ),
 
-    actions: [
-      okButton,
+    actions:[
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+        ],
+      ),
     ],
   );
 
@@ -582,3 +448,9 @@ showAlertDialog4(BuildContext context) {
     },
   );
 }
+
+
+
+
+
+

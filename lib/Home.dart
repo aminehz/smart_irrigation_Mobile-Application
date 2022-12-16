@@ -7,13 +7,7 @@ void main() => runApp(MaterialApp(
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    /* int _currentIndex=0;
-    final tabs =[
-      Navigator.pushNamed(context, "/home"),
-      Navigator.pushNamed(context, "/capteur"),
-      Navigator.pushNamed(context, "/electrovanne"),
 
-    ];*/
     return Scaffold(
       appBar: AppBar(
         title: Text('Smart Irrigation', style: TextStyle(color: Colors.white)),
@@ -22,40 +16,6 @@ class Home extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          /* BottomNavigationBar(
-                type: BottomNavigationBarType.fixed,
-                backgroundColor: Color(0xFF6200EE),
-                selectedItemColor: Colors.white,
-                unselectedItemColor: Colors.white.withOpacity(.60),
-                selectedFontSize: 14,
-                unselectedFontSize: 14,
-                currentIndex:_currentIndex ,
-                onTap: (value){
-
-                },
-
-
-                items: [
-                  BottomNavigationBarItem(
-
-                    label:'Favorites',
-                    icon: Icon(Icons.favorite),
-                  ),
-                  BottomNavigationBarItem(
-                    label:'Music',
-                    icon: Icon(Icons.music_note),
-                  ),
-                  BottomNavigationBarItem(
-                    label:'Places',
-                    icon: Icon(Icons.location_on),
-                  ),
-                  BottomNavigationBarItem(
-                    label:'News',
-                    icon: Icon(Icons.library_books),
-                  ),
-                ],
-
-              ),*/
 
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -80,8 +40,8 @@ class Home extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "https://cdn-icons-png.flaticon.com/512/3942/3942094.png",
+                        Image.asset(
+                          'assets/images/meteoH.png',
                           width: 50,
                           height: 50,
                         ),
@@ -112,8 +72,8 @@ class Home extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Image.network(
-                          "https://cdn-icons-png.flaticon.com/512/777/777610.png",
+                        Image.asset(
+                          'assets/images/gouttedeauH.png',
                           width: 50,
                           height: 50,
                         ),
@@ -145,8 +105,8 @@ class Home extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Image.network(
-                          "https://uxwing.com/wp-content/themes/uxwing/download/medical-science-lab/low-temperature-icon.png",
+                        Image.asset(
+                          'assets/images/low-temperature-icon.webp',
                           width: 50,
                           height: 50,
                         ),
@@ -177,8 +137,8 @@ class Home extends StatelessWidget {
                   children: <Widget>[
                     Row(
                       children: <Widget>[
-                        Image.network(
-                          "https://media.istockphoto.com/id/1309043223/vector/windsock.jpg?s=612x612&w=0&k=20&c=cC0bE252J06HHsUGGHjbKVm3E4sU-vrDSJrgqtjMlo4=",
+                        Image.asset(
+                          "assets/images/ventH.jpg",
                           height: 50,
                           width: 50,
                         ),
@@ -219,8 +179,8 @@ class Home extends StatelessWidget {
                           width: 20,
                         ),
                         Text("Nord ouest"),
-                        Image.network(
-                          "https://cdn-icons-png.flaticon.com/512/61/61021.png?w=360",
+                        Image.asset(
+                          "assets/images/flech.png",
                           width: 50,
                           height: 50,
                         ),
@@ -251,8 +211,8 @@ class Home extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "https://png.pngtree.com/png-vector/20190719/ourlarge/pngtree-rain-icon-png-image_1558221.jpg",
+                        Image.asset(
+                          "assets/images/pluie.jpg",
                           width: 50,
                           height: 50,
                         ),

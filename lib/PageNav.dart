@@ -22,7 +22,7 @@ class PageNav extends StatefulWidget {
 }
 
 class _PageNavState extends State<PageNav> {
-  final List _pages = [Home(), electrovanne(), capteurSol(),forum(),Historique()];
+  final List _pages = [Home(), electrovanne(),Historique(),capteurSol(),forum()];
   int activePage;
   _PageNavState(this.activePage);
 
@@ -51,19 +51,19 @@ class _PageNavState extends State<PageNav> {
                 AssetImage('assets/images/graphique.png'),
                 size: 30,
               ),
-              label: 'capteurSol'),
+              label: 'historique'),
           BottomNavigationBarItem(
               icon: const ImageIcon(
                 AssetImage('assets/images/gouttedeau.png'),
                 size: 30,
               ),
-              label: 'forum'),
+              label: 'Capteur du sol'),
           BottomNavigationBarItem(
               icon: const ImageIcon(
                 AssetImage('assets/images/reglages.png'),
                 size: 30,
               ),
-              label: 'Configuration')
+              label: 'Forum')
         ],
         currentIndex: activePage,
         backgroundColor: Colors.white,

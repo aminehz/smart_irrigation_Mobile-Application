@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smart_irrigation/electrovanne.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 void main() => runApp(MaterialApp(
       home: capteurSol(),
@@ -33,8 +34,8 @@ class capteurSol extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYpwcDQ1RoUhfk3O5b1tYJkegmZCPruDK5FA&usqp=CAU",
+                        Image.asset(
+                          "assets/images/goutC.png",
                           width: 50,
                           height: 50,
                         ),
@@ -74,7 +75,7 @@ class capteurSol extends StatelessWidget {
                     height: 50,
                   ),
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {  showAlertDialogH1(context);},
                             child: Text('Historique',
                                 style: TextStyle(color: Colors.white)),
                             style: TextButton.styleFrom(
@@ -107,8 +108,8 @@ class capteurSol extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "https://cdn-icons-png.flaticon.com/512/1555/1555571.png",
+                        Image.asset(
+                          "assets/images/flowerC.png",
                           width: 50,
                           height: 50,
                         ),
@@ -148,7 +149,9 @@ class capteurSol extends StatelessWidget {
             height: 50,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              showAlertDialogH2(context);
+            },
             child: Text('Historique',
                 style: TextStyle(color: Colors.white)),
             style: TextButton.styleFrom(
@@ -182,8 +185,8 @@ class capteurSol extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "https://thumbs.dreamstime.com/b/surveillance-de-l-humidit%C3%A9-du-sol-ic%C3%B4ne-lin%C3%A9aire-noire-mesure-pr%C3%A9cise-capteur-temp%C3%A9rature-la-teneur-en-eau-volumique-214646442.jpg",
+                        Image.asset(
+                          "assets/images/humidité.jpg",
                           width: 50,
                           height: 50,
                         ),
@@ -223,7 +226,9 @@ class capteurSol extends StatelessWidget {
                           height: 50,
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showAlertDialogH3(context);
+                          },
                           child: Text('Historique',
                               style: TextStyle(color: Colors.white)),
                           style: TextButton.styleFrom(
@@ -256,8 +261,8 @@ class capteurSol extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        Image.network(
-                          "http://www.agri40.ma/images/capteur-2.png",
+                        Image.asset(
+                          "assets/images/mobileC.png",
                           width: 50,
                           height: 50,
                         ),
@@ -297,7 +302,9 @@ class capteurSol extends StatelessWidget {
                           height: 50,
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            showAlertDialogH4(context);
+                          },
                           child: Text('Historique',
                               style: TextStyle(color: Colors.white)),
                           style: TextButton.styleFrom(
@@ -322,84 +329,56 @@ class capteurSol extends StatelessWidget {
 showAlertDialog1(BuildContext context) {
 
   // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
+
 
   // set up the AlertDialog
   bool valueCheck1 = false;
   AlertDialog alert = AlertDialog(
-    title:AppBar(
-      title:
-      Text("Parametre de l'humidité",
-        style: TextStyle(color: Colors.white),
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 150,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter maximum humidité',
+                hintText: 'Enter Max Humedité'
+            ),
+          ),
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter minimum humidité',
+                hintText: 'Enter Min Humedité'
+            ),
+          ),
+        ],
+
       ),
-      backgroundColor: Colors.green,
     ),
 
+    actions:[
 
-    content:Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Max humidité',
-              hintText: 'Limit Max humidité'
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Min humidité',
-              hintText: 'Limit Min humidité'
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
-    ),
-
-
-    actions: [
-      okButton,
+        ],
+      ),
     ],
   );
 
@@ -416,82 +395,54 @@ showAlertDialog1(BuildContext context) {
 showAlertDialog2(BuildContext context) {
 
   // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-    title:AppBar(
-      title:
-      Text("Parametre de l'humidité",
-        style: TextStyle(color: Colors.white),
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 150,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter maximum humidité',
+                hintText: 'Enter Max Humedité'
+            ),
+          ),
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter minimum humidité',
+                hintText: 'Enter Min Humedité'
+            ),
+          ),
+        ],
+
       ),
-      backgroundColor: Colors.green,
     ),
 
+    actions:[
 
-    content:Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Max humidité',
-              hintText: 'Limit Max humidité'
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Min humidité',
-              hintText: 'Limit Min humidité'
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
-    ),
-
-    actions: [
-      okButton,
+        ],
+      ),
     ],
   );
 
@@ -507,83 +458,55 @@ showAlertDialog2(BuildContext context) {
 showAlertDialog3(BuildContext context) {
 
   // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () { },
-  );
+
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 150,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter maximum humidité',
+                hintText: 'Enter Max Humedité'
+            ),
+          ),
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter minimum humidité',
+                hintText: 'Enter Min Humedité'
+            ),
+          ),
+        ],
 
-    title:AppBar(
-      title:
-      Text("Parametre de l'humidité",
-        style: TextStyle(color: Colors.white),
       ),
-      backgroundColor: Colors.green,
     ),
 
+    actions:[
 
-    content:Column(
-
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Max humidité',
-              hintText: 'Limit Max humidité'
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Min humidité',
-              hintText: 'Limit Min humidité'
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
           ),
-        ),
-
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
-    ),
-
-    actions: [
-      okButton,
+        ],
+      ),
     ],
   );
 
@@ -599,81 +522,89 @@ showAlertDialog3(BuildContext context) {
 showAlertDialog4(BuildContext context) {
 
   // set up the button
+
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    content:SizedBox(height: 150,
+      child: Column(
+        children:<Widget>[
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter maximum humidité',
+                hintText: 'Enter Max Humedité'
+            ),
+          ),
+          TextField (
+            decoration: InputDecoration(
+                border: InputBorder.none,
+                labelText: 'Enter minimum humidité',
+                hintText: 'Enter Min Humedité'
+            ),
+          ),
+        ],
+
+      ),
+    ),
+
+    actions:[
+
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children:<Widget> [
+          TextButton(
+            child: Text("Annuler",
+                style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+          SizedBox(width: 40),
+          TextButton(
+            child: Text("Valider",style: TextStyle(color: Colors.white)),
+            onPressed: () { },
+            style: TextButton.styleFrom(
+                backgroundColor: Colors.green),
+          ),
+        ],
+      ),
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+
+
+//// LES Btn Historique:
+showAlertDialogH1(BuildContext context) {
+  // set up the button
   Widget okButton = TextButton(
     child: Text("OK"),
-    onPressed: () { },
+    onPressed: () {Navigator.pop(context);},
   );
 
   // set up the AlertDialog
   AlertDialog alert = AlertDialog(
-
-    title:AppBar(
-      title:
-      Text("Parametre de l'humidité",
-        style: TextStyle(color: Colors.white),
-      ),
-      backgroundColor: Colors.green,
-    ),
+    title:
+    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
 
 
-    content:Column(
+    //Text("My title"),
+    content:
 
-      children:<Widget> [
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Max humidité',
-              hintText: 'Limit Max humidité'
-          ),
-        ),
-        TextField (
-          decoration: InputDecoration(
-              border: InputBorder.none,
-              labelText: 'Limit Min humidité',
-              hintText: 'Limit Min humidité'
-          ),
-        ),
-
-        Row(
-          children: [
-            TextButton(
-              child: Text("Annuler",
-                  style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-            TextButton(
-              child: Text("Valider",style: TextStyle(color: Colors.white)),
-              onPressed: () { },
-              style: TextButton.styleFrom(
-                  backgroundColor: Colors.green),
-            ),
-
-          ],
-        ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        SizedBox(
-          height: 120,
-          width: 50,
-        ),
-      ],
-
-    ),
-
+    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
+      return SizedBox(width: double.maxFinite, child: Chart());
+    }),
     actions: [
       okButton,
     ],
@@ -686,4 +617,157 @@ showAlertDialog4(BuildContext context) {
       return alert;
     },
   );
+}
+
+
+showAlertDialogH2(BuildContext context) {
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text("OK"),
+    onPressed: () {Navigator.pop(context);},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title:
+    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
+
+
+    //Text("My title"),
+    content:
+
+    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
+      return SizedBox(width: double.maxFinite, child: Chart());
+    }),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+
+
+showAlertDialogH3(BuildContext context) {
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text("OK"),
+    onPressed: () {Navigator.pop(context);},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title:
+    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
+
+
+    //Text("My title"),
+    content:
+
+    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
+      return SizedBox(width: double.maxFinite, child: Chart());
+    }),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+
+showAlertDialogH4(BuildContext context) {
+  // set up the button
+  Widget okButton = TextButton(
+    child: Text("OK"),
+    onPressed: () {Navigator.pop(context);},
+  );
+
+  // set up the AlertDialog
+  AlertDialog alert = AlertDialog(
+    title:
+    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
+
+
+    //Text("My title"),
+    content:
+
+    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
+      return SizedBox(width: double.maxFinite, child: Chart());
+    }),
+    actions: [
+      okButton,
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+class Chart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final List<ChartData>
+    chartData=[
+      ChartData(3,9),
+      ChartData(5,10),
+      ChartData(10,20),
+      ChartData(15,25),
+      ChartData(30,40)
+
+    ];
+
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Container(
+            child: SfCartesianChart(
+              title: ChartTitle(text:""),
+              legend: Legend(isVisible: true),
+              series:<ChartSeries>[
+                AreaSeries<ChartData,int>(
+                  dataSource: chartData,
+                  xValueMapper: (ChartData data,_)=>data.x,
+                  yValueMapper: (ChartData data,_)=>data.y,
+                  color: Colors.green,
+                  borderColor: Colors.grey,
+                  borderWidth: 2,
+
+                ),
+
+              ],
+
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ChartData{
+  ChartData(this.x,this.y);
+  final int x;
+  final double y;
 }
