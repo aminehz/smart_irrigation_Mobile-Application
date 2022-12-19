@@ -62,7 +62,7 @@ class capteurSol extends StatelessWidget {
                           ElevatedButton(
                             child: Text('Parametres'),
                             onPressed: () {
-                              showAlertDialog1(context);
+                              showAlertDialog(context);
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
@@ -75,7 +75,7 @@ class capteurSol extends StatelessWidget {
                     height: 50,
                   ),
                           TextButton(
-                            onPressed: () {  showAlertDialogH1(context);},
+                            onPressed: () {  showAlertDialogH(context);},
                             child: Text('Historique',
                                 style: TextStyle(color: Colors.white)),
                             style: TextButton.styleFrom(
@@ -136,7 +136,7 @@ class capteurSol extends StatelessWidget {
           ElevatedButton(
             child: Text('Parametres'),
             onPressed: () {
-              showAlertDialog1(context);
+              showAlertDialog(context);
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.green,
@@ -150,7 +150,7 @@ class capteurSol extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              showAlertDialogH2(context);
+              showAlertDialogH(context);
             },
             child: Text('Historique',
                 style: TextStyle(color: Colors.white)),
@@ -213,7 +213,7 @@ class capteurSol extends StatelessWidget {
                         ElevatedButton(
                           child: Text('Parametres'),
                           onPressed: () {
-                            showAlertDialog1(context);
+                            showAlertDialog(context);
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.green,
@@ -227,7 +227,7 @@ class capteurSol extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            showAlertDialogH3(context);
+                            showAlertDialogH(context);
                           },
                           child: Text('Historique',
                               style: TextStyle(color: Colors.white)),
@@ -289,7 +289,7 @@ class capteurSol extends StatelessWidget {
                         ElevatedButton(
                           child: Text('Parametres'),
                           onPressed: () {
-                            showAlertDialog1(context);
+                            showAlertDialog(context);
                           },
                           style: ElevatedButton.styleFrom(
                             primary: Colors.green,
@@ -303,7 +303,7 @@ class capteurSol extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            showAlertDialogH4(context);
+                            showAlertDialogH(context);
                           },
                           child: Text('Historique',
                               style: TextStyle(color: Colors.white)),
@@ -326,7 +326,7 @@ class capteurSol extends StatelessWidget {
   }
 }
 
-showAlertDialog1(BuildContext context) {
+showAlertDialog(BuildContext context) {
 
   // set up the button
 
@@ -366,199 +366,7 @@ showAlertDialog1(BuildContext context) {
           TextButton(
             child: Text("Annuler",
                 style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-          SizedBox(width: 40),
-          TextButton(
-            child: Text("Valider",style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-        ],
-      ),
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-
-// btn  2
-showAlertDialog2(BuildContext context) {
-
-  // set up the button
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
-    content:SizedBox(height: 150,
-      child: Column(
-        children:<Widget>[
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter maximum humidité',
-                hintText: 'Enter Max Humedité'
-            ),
-          ),
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter minimum humidité',
-                hintText: 'Enter Min Humedité'
-            ),
-          ),
-        ],
-
-      ),
-    ),
-
-    actions:[
-
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children:<Widget> [
-          TextButton(
-            child: Text("Annuler",
-                style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-          SizedBox(width: 40),
-          TextButton(
-            child: Text("Valider",style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-        ],
-      ),
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-//btn3
-showAlertDialog3(BuildContext context) {
-
-  // set up the button
-
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
-    content:SizedBox(height: 150,
-      child: Column(
-        children:<Widget>[
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter maximum humidité',
-                hintText: 'Enter Max Humedité'
-            ),
-          ),
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter minimum humidité',
-                hintText: 'Enter Min Humedité'
-            ),
-          ),
-        ],
-
-      ),
-    ),
-
-    actions:[
-
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children:<Widget> [
-          TextButton(
-            child: Text("Annuler",
-                style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-          SizedBox(width: 40),
-          TextButton(
-            child: Text("Valider",style: TextStyle(color: Colors.white)),
-            onPressed: () { },
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-        ],
-      ),
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-//btn4
-showAlertDialog4(BuildContext context) {
-
-  // set up the button
-
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
-    content:SizedBox(height: 150,
-      child: Column(
-        children:<Widget>[
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter maximum humidité',
-                hintText: 'Enter Max Humedité'
-            ),
-          ),
-          TextField (
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                labelText: 'Enter minimum humidité',
-                hintText: 'Enter Min Humedité'
-            ),
-          ),
-        ],
-
-      ),
-    ),
-
-    actions:[
-
-      Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children:<Widget> [
-          TextButton(
-            child: Text("Annuler",
-                style: TextStyle(color: Colors.white)),
-            onPressed: () { },
+            onPressed: () {Navigator.pop(context); },
             style: TextButton.styleFrom(
                 backgroundColor: Colors.green),
           ),
@@ -586,7 +394,7 @@ showAlertDialog4(BuildContext context) {
 
 
 //// LES Btn Historique:
-showAlertDialogH1(BuildContext context) {
+showAlertDialogH(BuildContext context) {
   // set up the button
   Widget okButton = TextButton(
     child: Text("OK"),
@@ -620,107 +428,6 @@ showAlertDialogH1(BuildContext context) {
 }
 
 
-showAlertDialogH2(BuildContext context) {
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () {Navigator.pop(context);},
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:
-    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
-
-
-    //Text("My title"),
-    content:
-
-    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
-      return SizedBox(width: double.maxFinite, child: Chart());
-    }),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-
-
-
-showAlertDialogH3(BuildContext context) {
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () {Navigator.pop(context);},
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:
-    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
-
-
-    //Text("My title"),
-    content:
-
-    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
-      return SizedBox(width: double.maxFinite, child: Chart());
-    }),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
-
-
-showAlertDialogH4(BuildContext context) {
-  // set up the button
-  Widget okButton = TextButton(
-    child: Text("OK"),
-    onPressed: () {Navigator.pop(context);},
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title:
-    Text("Historique du Humidité du Sol",style: TextStyle(color: Colors.black,fontSize: 15)),
-
-
-    //Text("My title"),
-    content:
-
-    StatefulBuilder(builder: (BuildContext alertContext, StateSetter alertSetState) {
-      return SizedBox(width: double.maxFinite, child: Chart());
-    }),
-    actions: [
-      okButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}
 
 class Chart extends StatelessWidget {
   @override

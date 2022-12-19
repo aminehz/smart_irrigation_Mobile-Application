@@ -43,9 +43,10 @@ class Login extends StatelessWidget {
                       hintText: 'Enter Your userName'),
                 ),
               ),
+
                 ],
               ),
-
+          SizedBox(width: 50, height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -69,6 +70,7 @@ class Login extends StatelessWidget {
 
             ],
           ),
+          SizedBox(width: 50, height: 40),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
