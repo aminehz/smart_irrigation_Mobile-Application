@@ -7,6 +7,16 @@ void main() => runApp(MaterialApp(
     ));
 
 class capteurSol extends StatelessWidget {
+  //BD
+  List<Map<dynamic,dynamic>> electroList=[
+    {'title':'humidite du sol', 'imgPath':'assets/images/goutC.png','number':'80%','max':'10','min':'5'},
+    {'title':'temperature du sol', 'imgPath':'assets/images/flowerC.png','number':'20c°','max':'12','min':'6'},
+    {'title':'teneur en eau', 'imgPath':'assets/images/humidité.jpg','number':'53%','max':'14','min':'7'},
+    {'title':'electro conductivite', 'imgPath':'assets/images/mobileC.png','number':'1.5mv','max':'18','min':'9'},
+
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +27,7 @@ class capteurSol extends StatelessWidget {
       ),
       body: Column(
         children: <Widget>[
-          /** first row **/
+          for(var electItem in electroList)
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -28,24 +38,29 @@ class capteurSol extends StatelessWidget {
                     Row(
                       children: <Widget>[
                         Text(
-                          'Humidité du sol',
+                          electItem['title'],
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
                           ),
                         ),
                         Image.asset(
-                          "assets/images/goutC.png",
+                          electItem[
+                            'imgPath'
+                          ]
+                          ,
                           width: 50,
                           height: 50,
                         ),
-                        SizedBox(width: 180, height: 80),
+                        SizedBox(width: 176.6, height: 80),
                       ],
                     ),
                     Row(
                       children: <Widget>[
                         Text(
-                          '80%',
+                          electItem[
+                            'number'
+                          ],
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -55,20 +70,14 @@ class capteurSol extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-
-
-
-
                           ElevatedButton(
                             child: Text('Parametres'),
                             onPressed: () {
-                              showAlertDialog(context);
+                              showAlertDialog(context,electItem['max'],electItem['min'],electItem['title']);
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,
                             ),
-
-
                           ),
                   SizedBox(
                     width: 10,
@@ -82,240 +91,11 @@ class capteurSol extends StatelessWidget {
                                 backgroundColor: Colors.green),
                           ),
 
-
-
                       ],
                     ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          /** second row **/
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Temperature du sol',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/images/flowerC.png",
-                          width: 50,
-                          height: 50,
-                        ),
-                        SizedBox(width: 150, height: 80),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          '20°',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-      Row(
-        children: <Widget>[
-
-
-
-
-          ElevatedButton(
-            child: Text('Parametres'),
-            onPressed: () {
-              showAlertDialog(context);
-            },
-            style: ElevatedButton.styleFrom(
-              primary: Colors.green,
-            ),
-
-
-          ),
-          SizedBox(
-            width: 10,
-            height: 50,
-          ),
-          TextButton(
-            onPressed: () {
-              showAlertDialogH(context);
-            },
-            child: Text('Historique',
-                style: TextStyle(color: Colors.white)),
-            style: TextButton.styleFrom(
-                backgroundColor: Colors.green),
-          ),
-
-
-
-        ],
-      ),
 
                   ],
-                ),
-              ),
-            ],
-          ),
-          /** third row **/
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Teneur en eau',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/images/humidité.jpg",
-                          width: 50,
-                          height: 50,
-                        ),
-                        SizedBox(width: 180, height: 80),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          '53%',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
 
-
-
-
-                        ElevatedButton(
-                          child: Text('Parametres'),
-                          onPressed: () {
-                            showAlertDialog(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
-                          ),
-
-
-                        ),
-                        SizedBox(
-                          width: 10,
-                          height: 50,
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            showAlertDialogH(context);
-                          },
-                          child: Text('Historique',
-                              style: TextStyle(color: Colors.white)),
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.green),
-                        ),
-
-
-
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          /** fourth row **/
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          'Electro conductivité',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/images/mobileC.png",
-                          width: 50,
-                          height: 50,
-                        ),
-                        SizedBox(width: 130, height: 50),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text(
-                          '1.5mV',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-
-
-
-
-                        ElevatedButton(
-                          child: Text('Parametres'),
-                          onPressed: () {
-                            showAlertDialog(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.green,
-                          ),
-
-
-                        ),
-                        SizedBox(
-                          width: 10,
-                          height: 50,
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            showAlertDialogH(context);
-                          },
-                          child: Text('Historique',
-                              style: TextStyle(color: Colors.white)),
-                          style: TextButton.styleFrom(
-                              backgroundColor: Colors.green),
-                        ),
-
-
-
-                      ],
-                    ),
-                  ],
                 ),
               ),
             ],
@@ -326,7 +106,7 @@ class capteurSol extends StatelessWidget {
   }
 }
 
-showAlertDialog(BuildContext context) {
+showAlertDialog(BuildContext context,String max,String min,String paramName) {
 
   // set up the button
 
@@ -334,22 +114,24 @@ showAlertDialog(BuildContext context) {
   // set up the AlertDialog
   bool valueCheck1 = false;
   AlertDialog alert = AlertDialog(
-    title:Text("Parametres de l'humidité",style: TextStyle(color: Colors.black,fontSize: 15)),
+    title:Text("Parametres de $paramName",style: TextStyle(color: Colors.black,fontSize: 15)),
     content:SizedBox(height: 150,
       child: Column(
         children:<Widget>[
-          TextField (
+          TextFormField (
+            initialValue: max,
             decoration: InputDecoration(
                 border: InputBorder.none,
-                labelText: 'Enter maximum humidité',
-                hintText: 'Enter Max Humedité'
+                labelText: 'Enter maximum $paramName',
+                hintText: 'Enter Max $paramName'
             ),
           ),
-          TextField (
+          TextFormField (
+            initialValue: min,
             decoration: InputDecoration(
                 border: InputBorder.none,
-                labelText: 'Enter minimum humidité',
-                hintText: 'Enter Min Humedité'
+                labelText: 'Enter minimum $paramName',
+                hintText: 'Enter Min $paramName'
             ),
           ),
         ],
@@ -433,6 +215,8 @@ class Chart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ChartData>
+
+
     chartData=[
       ChartData(3,9),
       ChartData(5,10),

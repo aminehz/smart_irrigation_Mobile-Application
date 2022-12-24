@@ -38,13 +38,13 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<ChartData>
     chartData=[
-      ChartData(3,1),
-      ChartData(5,1),
-      ChartData(10,1),
-      ChartData(15,1),
-      ChartData(30,1)
+
 
     ];
+    for(var i=0;i<5;i++){
+      chartData.add(ChartData(i,i+0));
+    }
+
 
 
     return Padding(
