@@ -1,6 +1,8 @@
+//const express=require('express');
 const mongoose=require('mongoose');
 const {isEmail} = require('validator');
-const bcrypt = require('bcrypt');
+/*const session =require('express-session');
+const app=express();*/
 
 const userSchema=new mongoose.Schema({
     email:{
@@ -17,6 +19,11 @@ const userSchema=new mongoose.Schema({
     },
 });
 
+/*app.use(session({
+secret:"some secret",
+cookie:{maxAge:30000},
+saveUninitialized:false
+}));*/
 
 userSchema.statics.login = async function(email , password){
     const user = await this.findOne({email});
