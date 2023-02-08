@@ -1,5 +1,10 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
+import 'package:http/http.dart' as http;
+
+
 
 
 
@@ -9,10 +14,37 @@ void main() => runApp(MaterialApp(
       home: Home(),
     ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget{
+  const Home({super.key});
+  @override
+  State<Home> createState() => _Home();
+}
 
+class _Home extends State<Home> {
+ var actualCondition;
+ var humidity;
+ var temperature;
+ var vent;
+  @override
+  void initState(){
+    super.initState();
+    fetchWeather();
+  }
+Future<void> fetchWeather() async {
+    final response= await http.get(Uri.parse('http://api.openweathermap.org/data/2.5/weather?appid=b3db578458e199bfda327ec5ba3b3178&lang=fr&q=Sousse'));
 
+    if(response.statusCode== 200){
+      setState(() {
+        actualCondition= json.decode(response.body)['weather'][0]['main'];
+        humidity=json.decode(response.body)['main']['humidity'];
+        temperature=((json.decode(response.body)['main']['temp'])-273.15).round();
+        vent=((json.decode(response.body)['wind']['speed'])).round();
 
+      });
+    } else{
+      throw Exception("Failed to get weather data");
+    }
+}
   @override
   Widget build(BuildContext context) {
 
@@ -23,8 +55,8 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.green,
       ),
       body: Column(
-        children: <Widget>[
 
+        children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -32,14 +64,16 @@ class Home extends StatelessWidget {
               Card(
                 child: Column(
                   children: <Widget>[
+
                     Text(
-                      "Conditions actuelle",
+                      actualCondition,
                       style: TextStyle(
                         fontSize: 18,
                         color: Colors.black,
                       ),
                     ),
                     Row(
+
                       children: <Widget>[
                         Text(
                           "16°C             ",
@@ -86,7 +120,7 @@ class Home extends StatelessWidget {
                           height: 50,
                         ),
                         Text(
-                          "38%",
+                          "$humidity%",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -119,7 +153,7 @@ class Home extends StatelessWidget {
                           height: 50,
                         ),
                         Text(
-                          "5°C",
+                          "$temperature°C",
                           style: TextStyle(
                             fontSize: 18,
                             color: Colors.black,
@@ -178,7 +212,7 @@ class Home extends StatelessWidget {
                     ),
                     Row(
                       children: <Widget>[
-                        Text("31KM/H"),
+                        Text("$vent KM/H"),
                         SizedBox(
                           width: 20,
                         ),
