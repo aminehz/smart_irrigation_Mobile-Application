@@ -1,6 +1,10 @@
+import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:http/http.dart' as http;
+
 void main ()=> runApp(
     MaterialApp(
       home:electrovanne(),
@@ -16,21 +20,30 @@ class electrovanne extends StatefulWidget{
 
 
 class _electrovanne extends State<electrovanne>{
-  bool electro1 =true,electro2 =false,electro3 =true,electro4 =false;
 
-  //get from db:
 
-  List<Map<dynamic,dynamic>> electroList=[
-    {'name':'Electrovanne 1', 'state':true,'id':'electro1'},
-    {'name':'Electrovanne 2','state':false,'id':'electro2'},
-    {'name':'Electrovanne 3','state':false,'id':'electro3'},
-    {'name':'Electrovanne 4','state':false,'id':'electro4'},
-    {'name':'Electrovanne 5','state':true,'id':'electro5'},
+  var electroList;
 
-  ];
-  //
+  @override
+  void initState(){
+    super.initState();
+    fetchElectrovanne();
+  }
+  Future<void> fetchElectrovanne() async {
 
-    @override
+    final response= await http.get(Uri.parse('http://192.168.1.2:3000/electrovanne'));
+    if(response.statusCode== 200){
+      setState(() {
+        electroList= json.decode(response.body) as List<dynamic>;
+      }
+      );
+    } else{
+      throw Exception("Failed to get electrovanne data");
+    }
+  }
+
+
+  @override
     Widget build (BuildContext context){
       return Scaffold(
         appBar: AppBar(
@@ -53,7 +66,7 @@ class _electrovanne extends State<electrovanne>{
                       Row(
                         children: <Widget>[
                           Text(electItem[
-                            'name'
+                            'nom'
                           ],
                             style: TextStyle(
                               fontSize: 18,
@@ -69,7 +82,7 @@ class _electrovanne extends State<electrovanne>{
                           valueFontSize:13.0,
                           toggleSize:25.0,
                           value:electItem[
-                            'state'
+                            'status'
                           ],
                           activeColor: Colors.green,
                           borderRadius:30.0,
@@ -77,7 +90,7 @@ class _electrovanne extends State<electrovanne>{
                           showOnOff:true,
                           onToggle:(val){
                             setState((){
-                              electItem['state']=val;
+                              electItem['status']=val;
                             });
                           },
                         ),
@@ -92,7 +105,7 @@ class _electrovanne extends State<electrovanne>{
                           ElevatedButton(
                             child: Text('Parametres'),
                             onPressed: () {
-                              showAlertDialog(context,electItem['name'],electItem['id']);
+                              showAlertDialog(context,electItem['nom'],electItem['_id']);
                             },
                             style: ElevatedButton.styleFrom(
                               primary: Colors.green,

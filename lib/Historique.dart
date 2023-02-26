@@ -1,8 +1,12 @@
 import 'dart:ffi';
-
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'dart:convert';
+import 'package:charts_flutter/flutter.dart' as charts;
 void main() => runApp(Historique());
+
+
 
 class Historique extends StatelessWidget {
   @override
@@ -26,25 +30,57 @@ class MyLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Chart(),
+      child: chart(),
 
     );
   }
 }
+class chart extends StatefulWidget{
+  @override
+  _chart createState() => _chart();
+}
 
 
-class Chart extends StatelessWidget {
+class _chart extends State<chart> {
+
+  Future<List<ChartData>> fetchData() async {
+    final response = await http.get(Uri.parse('http://192.168.1.2:3000/graphic'));
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      final List<ChartData> chartData = data.map<ChartData>((datum) {
+        return ChartData(datum['x'], datum['y']);
+      }).toList();
+      return chartData;
+    } else {
+      throw Exception('Failed to load data from API');
+    }
+  }
+
+
+  List<ChartData> _data = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchData().then((data) {
+      setState(() {
+        _data = data;
+      });
+    });
+  }
+
+  charts.Series<ChartData, int> _createSeries() {
+    return charts.Series<ChartData, int>(
+      id: 'data',
+      data: _data,
+      domainFn: (ChartData datum, _) => datum.x,
+      measureFn: (ChartData datum, _) => datum.y,
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    final List<ChartData>
-    chartData=[
-
-
-    ];
-    for(var i=0;i<5;i++){
-      chartData.add(ChartData(i,i+0));
-    }
-
 
 
     return Padding(
@@ -53,22 +89,9 @@ class Chart extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            child: SfCartesianChart(
-                    title: ChartTitle(text:"Electrovanne 1"),
-                    legend: Legend(isVisible: false),
-                   series:<ChartSeries>[
-                     AreaSeries<ChartData,int>(
-                         dataSource: chartData,
-                         xValueMapper: (ChartData data,_)=>data.x,
-                         yValueMapper: (ChartData data,_)=>data.y,
-                          color: Colors.lightBlueAccent.withOpacity(0.5),
-                          borderColor: Colors.grey,
-                           borderWidth: 2,
-
-                       ),
-
-                   ],
-
+            child: charts.LineChart(
+              [_createSeries()],
+              animate: true,
             ),
           ),
         ],

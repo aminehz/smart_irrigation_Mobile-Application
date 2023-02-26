@@ -57,6 +57,7 @@ Future<void> fetchWeather() async {
       body: Column(
 
         children: <Widget>[
+          SizedBox(height: 30),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -129,12 +130,18 @@ Future<void> fetchWeather() async {
                       ],
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 350,
+                      height: 50,
                     ),
                   ],
                 ),
               ),
+    ],
+    ),
+    Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: <Widget>[
               Card(
                 child: Column(
                   children: <Widget>[
@@ -162,81 +169,15 @@ Future<void> fetchWeather() async {
                       ],
                     ),
                     SizedBox(
-                      width: 170,
-                      height: 30,
+                      width: 350,
+                      height: 50,
                     ),
                   ],
                 ),
               ),
             ],
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        Image.asset(
-                          "assets/images/ventH.jpg",
-                          height: 50,
-                          width: 50,
-                        ),
-                        Text(
-                          "Vent",
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black,
-                          ),
-                        ),
-                        SizedBox(
-                          width: 260,
-                          height: 50,
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text("vent moyenne"),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        Text("refal"),
-                        SizedBox(
-                          width: 50,
-                        ),
-                        Text("Direction"),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text("$vent KM/H"),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text("55 KM/H"),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Text("Nord ouest"),
-                        Image.asset(
-                          "assets/images/flech.png",
-                          width: 50,
-                          height: 50,
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      width: 300,
-                      height: 100,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

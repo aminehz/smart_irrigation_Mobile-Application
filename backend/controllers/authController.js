@@ -1,4 +1,6 @@
+
 const User = require('../models/User');
+
 
 
 
@@ -20,4 +22,25 @@ module.exports.login_post = async(req,res) => {
         res.status(400).json({});
    }
 }
+ 
+
+
+
+
+
+
+/*module.exports.electrovanneGet=(req,res) =>{
+  const electro=new Electrovanne({
+    nom:"electrovanne4",
+    status:true
+  });
+
+  electro.save()
+  .then((result)=> {
+    res.send(result)
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}*/
 
