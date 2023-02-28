@@ -6,24 +6,25 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'dart:convert';
 import 'package:charts_flutter/flutter.dart' as charts;
 void main() => runApp(Historique());
-
-class ChartData{
-  final double x;
+class ChartData {
+  final String x;
   final double y;
+
   ChartData({required this.x, required this.y});
-}
 
-Future<List<ChartData>> fetchChartData() async {
-  final response = await http.get(Uri.parse('http://192.168.1.2:3000/graphic'));
-  if (response.statusCode == 200) {
-    final List<dynamic> data = jsonDecode(response.body);
-    final List<ChartData> chartDataList = data.map((item) => ChartData(x: (item['x']).toDouble(), y: (item['y']).toDouble())).toList();
-    return chartDataList;
-
-  } else {
-    throw Exception('Failed to load data from API');
+  factory ChartData.fromJson(Map<String, dynamic> json) {
+    final label = json['x'] ?? '';
+    final value = json['y']?.toDouble() ?? 0.0;
+    return ChartData(
+      x: label,
+      y: value,
+    );
   }
 }
+
+
+
+
 
 
 class Historique extends StatelessWidget {
@@ -54,17 +55,37 @@ class MyLayout extends StatelessWidget {
   }
 }
 class chart extends StatefulWidget{
+
   @override
   _chart createState() => _chart();
 }
 
 
 class _chart extends State<chart> {
-  late Future<List<ChartData>> _futureChartData;
+  List<ChartData> _chartData = [];
+
   @override
   void initState() {
     super.initState();
-    _futureChartData = fetchChartData();
+    _fetchChartData();
+  }
+
+  Future<void> _fetchChartData() async {
+    final url = Uri.parse('http://192.168.1.2:3000/graphic');
+    final response = await http.get(url);
+
+    if (response.statusCode == 200) {
+      final List<dynamic> jsonData = jsonDecode(response.body);
+      final List<ChartData> chartData = jsonData
+          .map((dynamic data) => ChartData.fromJson(data))
+          .toList();
+
+      setState(() {
+        _chartData = chartData;
+      });
+    } else {
+      throw Exception('Error fetching chart data: ${response.statusCode}');
+    }
   }
 
   @override
@@ -75,26 +96,17 @@ class _chart extends State<chart> {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
-            child:FutureBuilder<List<ChartData>>(
-              future: _futureChartData,
-              builder: (context,snapshot){
-                if(snapshot.hasData){
-                  return SfCartesianChart(
-                    series: <ChartSeries>[
-                      LineSeries<ChartData,double>(
-                        dataSource: snapshot.data!,
-                        xValueMapper:(ChartData data,_)=> data.x,
-                        yValueMapper: (ChartData data,_) => data.y,
-                      ),
-                    ],
-                  );
-
-                } else if (snapshot.hasError){
-                  return Text('Error fetching chart data: ${snapshot.error}');
-                } else {
-                  return CircularProgressIndicator();
-                }
-              },
+            child:_chartData.isEmpty
+                ? Center(child: CircularProgressIndicator())
+                : SfCartesianChart(
+              primaryXAxis: CategoryAxis(),
+              series: <ChartSeries>[
+                StepLineSeries<ChartData, String>(
+                  dataSource: _chartData,
+                  xValueMapper: (ChartData data, _) => data.x,
+                  yValueMapper: (ChartData data, _) => data.y,
+                ),
+              ],
             ),
 
           ),
