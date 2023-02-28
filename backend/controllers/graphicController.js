@@ -19,8 +19,8 @@ module.exports.Graphic_post=async(req,res)=>{
     const {x,y}=req.body;
     
     const newGraphic=new Graphic({
-        x:10,
-        y:6.75
+        x:"dimanche",
+        y:1
     });
 
     newGraphic.save((err,graphic)=>{

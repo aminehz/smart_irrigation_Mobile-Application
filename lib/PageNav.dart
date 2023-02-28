@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smart_irrigation/Historique.dart';
-import 'package:smart_irrigation/forum.dart';
+import 'Historique.dart';
+import 'forum.dart';
 import 'Home.dart';
 import 'electrovanne.dart';
 import 'capteurSol.dart';

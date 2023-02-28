@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smart_irrigation/electrovanne.dart';
+import 'electrovanne.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 void main() => runApp(MaterialApp(
