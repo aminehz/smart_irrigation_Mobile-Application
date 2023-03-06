@@ -31,7 +31,7 @@ class _electrovanne extends State<electrovanne>{
   }
   Future<void> fetchElectrovanne() async {
 
-    final response= await http.get(Uri.parse('http://192.168.1.2:3000/electrovanne'));
+    final response= await http.get(Uri.parse('http://10.99.3.130:3000/electrovanne'));
     if(response.statusCode== 200){
       setState(() {
         electroList= json.decode(response.body) as List<dynamic>;

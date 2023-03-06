@@ -71,7 +71,7 @@ class _chart extends State<chart> {
   }
 
   Future<void> _fetchChartData() async {
-    final url = Uri.parse('http://192.168.1.2:3000/graphic');
+    final url = Uri.parse('http://10.99.3.130:3000/graphic');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
